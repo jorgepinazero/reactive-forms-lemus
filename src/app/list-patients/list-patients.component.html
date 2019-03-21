@@ -1,0 +1,23 @@
+<div fxLayout="row wrap" fxFlex="100">
+
+  <div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="start center">
+    <div fxLayout="row wrap" fxFlex="50" fxLayoutAlign="start center"
+         *ngFor="let patient of listPacientes; let i = index"
+         style="border:1px solid #2a2a2a; height:9.5rem; padding:.25rem;width:50%;margin-top:.75rem">
+      <div fxFlex="100">
+        <span style="color:dodgerblue">Nombre:&nbsp;</span>{{patient.name}}<br>
+        <span style="color:dodgerblue">Edad:&nbsp;</span>{{patient.age}}<br>
+        <span style="color:dodgerblue">Tipo de Sangre:&nbsp;</span>{{patient.bloodType}}
+      </div>
+      <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="space-around center">
+        <button type="button" class="btn btn-warning" (click)="editPatient(i)">EDITAR PACIENTE</button>
+        <button type="button" class="btn btn-info" (click)="watchAll(i)">VER TODO</button>
+      </div>
+    </div>
+  </div>
+
+  <div fxFlex="100" fxLayoutAlign="center" style="margin-top:1rem;">
+    <button type="button" class="btn btn-outline-primary" routerLink="/create">CREAR PACIENTE</button>
+  </div>
+
+</div>

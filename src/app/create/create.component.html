@@ -1,0 +1,46 @@
+<div fxLayout="row wrap" fxFlex="100">
+<form (submit)="send()" fxLayout="row wrap" fxFlex="50" [formGroup]="formGroup" #patientForm="ngForm" fxLayoutAlign="start center">
+
+  <div fxFlex="100">
+    <label for="patientName">Nombre del paciente: </label>
+    <input type="text" id="patientName" formControlName="name">
+  </div>
+
+  <div fxFlex="100">
+  <label for ="patientAge">Edad (años): </label>
+  <input type="text" id="patientAge" formControlName="age">
+  </div>
+
+  <div>Tipo de sangre:</div>
+  <div fxLayout="column wrap" fxFlex="100">
+    <label *ngFor="let blood of bloodType">
+      <input type="radio" name="bloodType" [value]="blood" formControlName="bloodType">
+      {{blood}}
+    </label>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!formGroup.valid">SUBMIT</button>
+</form>
+
+  <div fxFlex="50">
+      <div *ngFor="let contact of array.controls; let i = index" style="border:1px solid #2a2a2a; height:5rem;" [formGroup]="contact">
+        <label for="contactName">Contacto:</label>
+        <input type="text" id="contactName" formControlName="name">
+        <div *ngIf="contact.get('name').errors && contact.get('name').errors.minlength">
+          asdfasd
+        </div>
+        <br>
+        <label for="contactNumber">Número:</label>
+        <input type="text" id="contactNumber" formControlName="phone">
+        <div class="button-delete" (click)="remove(i)">&nbsp;&nbsp;-&nbsp;&nbsp;</div>
+
+      </div>
+    <div class="button-add" (click)="add()">&nbsp;&nbsp;+&nbsp;&nbsp;</div>
+
+  </div>
+
+  <div fxFlex="100" fxLayout="row wrap">
+    <button type="button" class="btn btn-group" routerLink="../">Regresar</button>
+  </div>
+
+</div>
+

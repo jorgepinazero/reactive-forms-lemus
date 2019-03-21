@@ -1,0 +1,26 @@
+p {
+  color:dodgerblue;
+  margin-bottom:.5rem;
+}
+
+input{
+  margin-bottom:.5rem;
+}
+
+.button-delete{
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: red;
+  float:right;
+  color:white;
+  margin:.2rem 1rem;
+}
+.button-add{
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: dodgerblue;
+  float:right;
+  color:white;
+  margin:0 .4rem;
+  height:1.5rem;
+}

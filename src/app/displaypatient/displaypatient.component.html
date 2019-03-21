@@ -1,0 +1,25 @@
+<div fxLayout="row wrap" fxFlex="100">
+  <div fxFlex="50">
+    Nombre del paciente:<br>
+    <h2>{{paciente.name}}</h2>
+
+    <h4><span style="color:dodgerblue">Edad:&nbsp; </span>{{paciente.age}}</h4>
+    <h4><span style="color:dodgerblue">Tipo de Sangre:&nbsp; </span>{{paciente.bloodType}}</h4>
+  </div>
+
+  <div fxFlex="50" fxLayout="row wrap">
+    <div fxFlex="100">
+      <h4><b>Números de emergencia</b></h4>
+    </div>
+    <div fxFlex="100" fxLayoutAlign="start center"
+         *ngFor="let patient of paciente.array; let i = index"
+         style="background:#d7d7d7; width:100%;padding:.2rem;margin-top:.25rem;">
+      Nombre: {{patient.name}}<br>
+      Teléfono: {{patient.phone}}
+    </div>
+  </div>
+
+  <div fxFlex="100" fxLayout="row wrap" style="margin-top:1rem;" fxLayoutAlign="center">
+      <button type="button" class="btn btn-primary" routerLink="../">REGRESAR</button>
+  </div>
+</div>

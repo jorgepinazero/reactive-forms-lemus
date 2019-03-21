@@ -1,0 +1,39 @@
+<div fxLayout="row wrap" fxFlex="100">
+  <form fxLayout="row wrap" fxFlex="100" [formGroup]="formGroup" #patientForm="ngForm">
+    <div fxFlex="50">
+      <h2 style="color:darkred;">Editar paciente</h2>
+      <p>Nombre:</p>
+      <input type="text" formControlName="name">
+      <p>Edad:</p>
+      <input type="text" formControlName="age">
+      <p>Tipo de Sangre:</p>
+      <input type="text" formControlName="bloodType">
+      <!--<label fxLayout="row wrap" *ngFor="let blood of bloodType">-->
+        <!--<input type="radio" name="bloodType" [(ngModel)]="blood">-->
+        <!--{{blood}}-->
+      <!--</label>-->
+    </div>
+    <div fxFlex="50" fxLayout="row wrap">
+
+      <div fxFlex="100" style="margin-top:1.5rem;"><h4>Números de Emergencia:</h4></div>
+      <div fxFlex="100">
+        <div class="button-add" (click)="add()">&nbsp;&nbsp;+&nbsp;&nbsp;</div>
+      </div>
+
+      <div fxFlex="100" fxLayoutAlign="start center" fxLayout="row wrap"
+           formArrayName="array"
+           *ngFor="let item of formGroup.get('array').controls; let i = index"
+           style="background:#d7d7d7; width:100%;padding:.2rem;margin-top:.25rem;">
+        <div fxFlex="100" [formGroup]="item">
+          <div class="button-delete" (click)="remove(i)">&nbsp;&nbsp;-&nbsp;&nbsp;</div>
+          <div>Nombre: <input type="text" formControlName="name"></div>
+          <div>Teléfono: <input type="text" formControlName="phone"></div>
+        </div>
+        </div>
+    </div>
+  </form>
+  <div fxFlex="100" fxLayoutAlign="space-around center" style="margin-top:1rem;">
+    <button type="button" class="btn btn-outline-warning" (click)="replaceData()">REEMPLAZAR</button>
+    <button type="button" class="btn btn-outline-primary" routerLink="../../">REGRESAR</button>
+  </div>
+</div>
